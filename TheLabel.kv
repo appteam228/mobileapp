@@ -2,11 +2,13 @@
 
 <MainWidget>:
     boxlayout: "123#"
+    rounded_widget: "124#"
 
     Label: 
         size: "200dp", "200dp"
         pos: "300dp", "300dp"
-        text: "!№;"
+        text: "this is just fro test"
+        color: 1, 0, 1, 1
 
     Button:
         size: "30dp", "200dp"
@@ -20,49 +22,56 @@
         text: "0"
         color: 1, 0, 0, 1
 
-    BoxLayoutExample:
+    FirstLayout:
         id: "123#"
 
 
 
-<BoxLayoutExample>:
-    orientation: "horizontal"
+<FirstLayout>:
+    orientation: "vertical"
 
-    canvas:
-        Ellipse:
-            size: 50, 50
-            pos: 50, 50
-            
-    BoxLayout: 
-        orientation: "vertical"
+    #Button:
+        #size_hine: .5, .5
+        #color: (0, 0, 1, 1)
 
-        Button: 
-            text: "A1"
-            width: "120dp"
-            height: "12dp"
-            pos_hint: {"x": .5}
+    RoundedButton: 
+        text: "test button"
+        size_hint: .5, .2
+        #background_color: (48/255, 84/255, 150/255)
+        #background_normal: ''
+        on_press: root.test_foo()
+
+    Textinput:
+        size: 6, 8
+        id: text_in
+        text: "test text"
+        color: (0, 0, 0, 1)
+
         
-        Button:
-            text: "A2"
-            size_hint: .5, .5
-            pos_hint: {"x": .5}
-        
-        Button: 
-            text: "A3"
-            size_hint: .5, .5
-            pos_hint: {"x": .5}
-        
-        Button:
-            text: "B1"
-            size_hint: .5, .5
-            pos_hine: {"x": .5}
-        
-        Button:
-            text: "B2"
-            size_hine: .5, .5
-            pos_hint: {"x": .5}
-        
-        Button:
-            text: "B3"
-            size_hint: .5, .5
-            pos_hint: {"x": .5}
+
+
+<RoundedButton@Button>
+    background_color: (0, 0, 0, 0)
+    background_normal: ''
+    canvas.before:
+        Color:
+            rgba: (255/255, 77/255, 77/255, 1)
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [10]
+
+<Textinput@TextInput>:
+    background_color: (0, 0, 0, 0)
+    background_normal: ''
+    background_active: ""
+    color: (90/255, 58/255, 58/255, 1)
+    canvas.before:
+        Color: 
+            rgba: (255/255, 233/255, 245/255, 1)
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [10]
+    
+
